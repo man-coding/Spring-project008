@@ -65,12 +65,16 @@ public class BoardContrller {
 
 	// 상세화면
 	@GetMapping("/read")
-	public void read(@RequestParam(name = "no") int no, Model model) {
+	public void read(@RequestParam(name = "no") int no, @RequestParam(defaultValue = "0", name = "page") int page,
+			Model model) {
 
 		BoardDTO dto = service.read(no);
 
 		model.addAttribute("dto", dto);
 		// 상세화면에 게시물 정보 출력
+
+		// 화며에 페이지번호 전달
+		model.addAttribute("page", page);
 	}
 
 	@GetMapping("/modify")
