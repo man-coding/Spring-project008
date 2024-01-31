@@ -37,4 +37,11 @@ public class MemberServiceTest {
 			System.out.println("중복된 회원입니다.");
 		}
 	}
+
+	@Test
+	public void 회원단건조회() {
+
+		MemberDTO dto = service.read("chch2857");
+		System.out.println(dto);
+	}
 }
